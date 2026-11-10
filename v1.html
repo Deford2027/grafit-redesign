@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAFIT — вариант 1 · Graphite Dark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1012;--card:#17181b;--line:#26282d;--txt:#f2f2f2;--mut:#9a9ea6;--acc:#fd7b27;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+/* header */
+header{position:absolute;inset:0 0 auto 0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
+.logo img{width:140px;height:auto;display:block}
+.logo small{display:block;font-size:11px;color:var(--mut);margin-top:6px;letter-spacing:.02em}
+.menu{display:flex;gap:28px;font-size:15px;font-weight:500;color:#d6d7da}
+.menu a:hover{color:var(--acc)}
+.hdr-r{display:flex;align-items:center;gap:18px}
+.phone{font-weight:700;font-size:16px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:#fff;font-weight:700;border:0;border-radius:12px;padding:14px 22px;font-size:15px;cursor:pointer;font-family:inherit;transition:.2s}
+.btn:hover{background:#ff8f45;transform:translateY(-1px)}
+.btn.ghost{background:transparent;border:1px solid #3a3d44}
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(assets/voyah.jpg) center/cover}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,16,18,.96) 0%,rgba(15,16,18,.82) 38%,rgba(15,16,18,.2) 75%),linear-gradient(0deg,var(--bg) 0%,transparent 40%)}
+.hero .wrap{position:relative;width:100%;padding-top:140px;padding-bottom:56px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#ffd2b3;background:rgba(253,123,39,.12);border:1px solid rgba(253,123,39,.35);padding:8px 14px;border-radius:99px;margin-bottom:28px}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
+h1{font-size:clamp(40px,5.4vw,78px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+h1 em{font-style:normal;color:var(--acc)}
+.lead{font-size:19px;color:#c4c6cb;max-width:560px;margin:24px 0 36px;line-height:1.5}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.form{background:rgba(23,24,27,.78);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:20px;padding:28px}
+.form h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.form p{font-size:14px;color:var(--mut);margin-bottom:20px}
+.field{width:100%;background:#0f1012;border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:15px 16px;font:inherit;font-size:15px;margin-bottom:10px;outline:none}
+.field:focus{border-color:var(--acc)}
+.form .btn{width:100%;justify-content:center;margin-top:6px}
+.form small{display:block;font-size:12px;color:#6e727a;margin-top:12px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:56px;grid-column:1/-1}
+.stat{padding:26px 24px 0 0}
+.stat b{display:block;font-size:34px;font-weight:800;letter-spacing:-.02em}
+.stat b span{color:var(--acc)}
+.stat p{font-size:14px;color:var(--mut);margin-top:6px}
+/* services */
+.sec{padding:110px 0}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:14px}
+h2{font-size:clamp(32px,3.6vw,52px);line-height:1.06;font-weight:800;letter-spacing:-.02em;max-width:720px}
+.sec-h p{color:var(--mut);max-width:380px;font-size:16px;line-height:1.55}
+.brands{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.chip{border:1px solid var(--line);background:var(--card);padding:12px 20px;border-radius:99px;font-weight:600;font-size:15px;cursor:pointer;transition:.2s;color:#d6d7da}
+.chip:hover{border-color:#555}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;min-height:230px;transition:.25s;position:relative}
+.card:hover{border-color:rgba(253,123,39,.5);transform:translateY(-3px)}
+.ic{width:48px;height:48px;border-radius:12px;background:rgba(253,123,39,.12);display:grid;place-items:center;color:var(--acc)}
+.card h4{font-size:20px;font-weight:700}
+.card p{font-size:14.5px;color:var(--mut);line-height:1.55;flex:1}
+.card .pr{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#d6d7da;font-weight:600;border-top:1px solid var(--line);padding-top:16px}
+.card .pr span{color:var(--acc)}
+.card.big{grid-column:span 2;background:linear-gradient(120deg,rgba(15,16,18,.95) 30%,rgba(15,16,18,.3)),url(assets/garage.jpg) center/cover}
+.card.big h4{font-size:28px;max-width:420px}
+.card.big p{max-width:440px;color:#c4c6cb}
+@media(max-width:1000px){.menu{display:none}.hero .wrap{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}.sec-h{flex-direction:column;align-items:start}}
+@media(max-width:640px){.hero-bg:after{background:linear-gradient(0deg,var(--bg) 25%,rgba(15,16,18,.75))}.wrap{padding:0 16px}.phone{display:none}.grid{grid-template-columns:1fr}.card.big{grid-column:auto}.stat b{font-size:26px}.lead{font-size:16px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#"><img src="assets/logo-white.svg" alt="GRAFIT" width="140"><small>Техцентр китайских премиальных авто</small></a>
+  <nav class="menu"><a href="#">Сервис</a><a href="#">Русификация</a><a href="#">Детейлинг</a><a href="#">Отзывы</a><a href="#">Блог</a><a href="#">Контакты</a></nav>
+  <div class="hdr-r"><a class="phone" href="tel:+79962996939">+7 996 299-69-39</a><a class="btn" href="#form">Записаться</a></div>
+</div></header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div>
+      <div class="tag"><i></i>Москва · Уфа · Краснодар</div>
+      <h1>Сервис китайских<br><em>премиальных</em> автомобилей</h1>
+      <p class="lead">ТО, ремонт, диагностика, русификация и детейлинг LiXiang, Zeekr, Voyah, Avatr и ещё 15 марок — с гарантией 12 месяцев.</p>
+      <div class="cta"><a class="btn" href="#form">Записаться в техцентр →</a><a class="btn ghost" href="#services">Услуги и цены</a></div>
+    </div>
+    <form class="form" id="form" onsubmit="return false">
+      <h3>Бесплатная диагностика</h3>
+      <p>по 39 параметрам при записи на ТО</p>
+      <input class="field" placeholder="+7 (___) ___-__-__">
+      <select class="field"><option>Марка автомобиля</option><option>LiXiang</option><option>Zeekr</option><option>Voyah</option><option>Avatr</option><option>Другая</option></select>
+      <button class="btn">Записаться</button>
+      <small>Перезвоним за 15 минут в рабочее время</small>
+    </form>
+    <div class="stats">
+      <div class="stat"><b>6<span>+</span></b><p>лет с премиум-авто из Китая</p></div>
+      <div class="stat"><b>12 <span>мес</span></b><p>гарантии и техподдержки</p></div>
+      <div class="stat"><b>39</b><p>параметров бесплатной диагностики</p></div>
+      <div class="stat"><b>19</b><p>марок на обслуживании</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="sec-h">
+    <div><div class="eyebrow">Услуги</div><h2>Обслуживание и ремонт по регламенту производителя</h2></div>
+    <p>Выберите марку — покажем услуги и цены именно для вашей модели. Работаем с гибридами и электромобилями.</p>
+  </div>
+  <div class="brands" id="brands"></div>
+  <div class="grid">
+    <div class="card big"><div class="ic"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h4>Плановое ТО <span class="bn">LiXiang</span></h4><p>Масло и жидкости, фильтры, свечи, проверка ВВ-батареи и силовой электроники — по регламенту завода.</p><div class="pr">от 9 900 ₽ <a class="btn" href="#form" style="padding:10px 16px">Записаться</a></div></div>
+    <div class="card"><div class="ic"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h4>Компьютерная диагностика</h4><p>Все системы автомобиля, отчёт с фото и рекомендациями.</p><div class="pr">Бесплатно <span>при ТО</span></div></div>
+    <div class="card"><div class="ic"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Тормозная система</h4><p>Диски, колодки, тормозная жидкость.</p><div class="pr">от 2 500 ₽ <span>→</span></div></div>
+    <div class="card"><div class="ic"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18h16M6 18V9l6-4 6 4v9"/></svg></div><h4>Подвеска и рулевое</h4><p>Диагностика и ремонт ходовой, развал-схождение.</p><div class="pr">от 1 500 ₽ <span>→</span></div></div>
+    <div class="card"><div class="ic"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><h4>Русификация</h4><p>Голосовой ассистент, мультимедиа, приборная панель, навигация.</p><div class="pr">от 25 000 ₽ <span>→</span></div></div>
+  </div>
+</div></section>
+<script>
+const B=["LiXiang","Zeekr","Voyah","Avatr","Geely","Denza","BYD","Hongqi","Exeed","Haval","Chery","Changan","Omoda","Jaecoo","Jetour","Belgee","Polarstone","Leopard"];
+const el=document.getElementById('brands');
+B.forEach((b,i)=>{const c=document.createElement('button');c.className='chip'+(i?'':' on');c.textContent=b;c.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');document.querySelectorAll('.bn').forEach(x=>x.textContent=b)};el.appendChild(c)});
+</script>
+</body>
+</html>
