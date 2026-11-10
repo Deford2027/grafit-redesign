@@ -34,19 +34,22 @@ header{position:absolute;inset:0 0 auto 0;z-index:5}
 .tag i{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
 h1{font-size:clamp(30px,3.4vw,50px);line-height:1.1;font-weight:800;letter-spacing:-.02em;max-width:640px}
 h1 em{font-style:normal;color:var(--acc)}
-.lead{font-size:16px;color:#c4c6cb;max-width:500px;margin:18px 0 28px;line-height:1.6}
+.lead{font-size:16px;color:#c4c6cb;max-width:500px;margin:18px 0 26px;line-height:1.6}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 .live{position:absolute;right:32px;bottom:56px;display:flex;align-items:center;gap:8px;font-size:12px;color:#c4c6cb;background:rgba(15,16,18,.55);border:1px solid rgba(255,255,255,.1);padding:7px 12px;border-radius:99px}
 .live i{width:6px;height:6px;border-radius:50%;background:#ff3b30;animation:bl 1.4s infinite}
 @keyframes bl{50%{opacity:.2}}
-.bar{position:relative;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.form{display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:12px;align-items:center;padding:22px 0}
-.form h3{font-size:16px;font-weight:700}
-.form p{font-size:13px;color:var(--mut);margin-top:3px}
-.field{width:100%;background:#0f1012;border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:13px 15px;font:inherit;font-size:14px;outline:none}
-.field:focus{border-color:var(--acc)}
-.form small{grid-column:1/-1;font-size:12px;color:#6e727a;margin-top:-2px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.form{display:flex;align-items:center;gap:6px;max-width:620px;background:rgba(23,24,27,.82);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:6px}
+.field{flex:1;min-width:0;background:transparent;border:0;color:var(--txt);padding:14px 16px;font:inherit;font-size:14px;outline:none}
+.field::placeholder{color:#8a8e96}
+.field+.field{border-left:1px solid rgba(255,255,255,.12)}
+.form .btn{flex:none;padding:13px 22px}
+.note{font-size:12px;color:#8a8e96;margin-top:12px;line-height:1.5}
+.note b{color:var(--acc);font-weight:600}
+.links{margin-top:22px;font-size:14px;color:#c4c6cb}
+.links a{border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px}
+.links a:hover{color:var(--acc);border-color:var(--acc)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
 .stat{padding:24px 20px 24px 0}
 .stat b{display:block;font-size:24px;font-weight:800;letter-spacing:-.02em}
 .stat b span{color:var(--acc)}
@@ -72,8 +75,8 @@ h2{font-size:clamp(26px,2.6vw,38px);line-height:1.15;font-weight:800;letter-spac
 .card.big{grid-column:span 2;background:linear-gradient(120deg,rgba(15,16,18,.95) 30%,rgba(15,16,18,.3)),url(assets/garage.jpg) center/cover}
 .card.big h4{font-size:22px;max-width:420px}
 .card.big p{max-width:440px;color:#c4c6cb}
-@media(max-width:1000px){.menu{display:none}.form{grid-template-columns:1fr 1fr}.form>div:first-child{grid-column:1/-1}.stats{grid-template-columns:repeat(2,1fr)}.live{display:none}.grid{grid-template-columns:1fr 1fr}.sec-h{flex-direction:column;align-items:start}}
-@media(max-width:640px){.hero{min-height:0}.wrap.hero-in{padding-top:120px;padding-bottom:40px}.hero-bg:after{background:linear-gradient(0deg,var(--bg) 5%,rgba(15,16,18,.72))}.form{grid-template-columns:1fr}.wrap{padding:0 16px}.phone{display:none}.grid{grid-template-columns:1fr}.card.big{grid-column:auto}.stat b{font-size:22px}.lead{font-size:15px}}
+@media(max-width:1000px){.menu{display:none}.stats{grid-template-columns:repeat(2,1fr)}.live{display:none}.grid{grid-template-columns:1fr 1fr}.sec-h{flex-direction:column;align-items:start}}
+@media(max-width:640px){.hero{min-height:0}.wrap.hero-in{padding-top:120px;padding-bottom:40px}.hero-bg:after{background:linear-gradient(0deg,var(--bg) 5%,rgba(15,16,18,.72))}.form{flex-direction:column;align-items:stretch;padding:8px}.field+.field{border-left:0;border-top:1px solid rgba(255,255,255,.12)}.form .btn{justify-content:center}.wrap{padding:0 16px}.phone{display:none}.grid{grid-template-columns:1fr}.card.big{grid-column:auto}.stat b{font-size:22px}.lead{font-size:15px}}
 </style>
 </head>
 <body>
@@ -89,17 +92,14 @@ h2{font-size:clamp(26px,2.6vw,38px);line-height:1.15;font-weight:800;letter-spac
     <div class="tag"><i></i>Москва · Уфа · Краснодар</div>
     <h1>Сервис китайских <em>премиальных</em> автомобилей</h1>
     <p class="lead">ТО, ремонт, диагностика, русификация и детейлинг LiXiang, Zeekr, Voyah, Avatr и ещё 15 марок — с гарантией 12 месяцев.</p>
-    <div class="cta"><a class="btn" href="#form">Записаться в техцентр →</a><a class="btn ghost" href="#services">Услуги и цены</a></div>
+    <form class="form" id="form" onsubmit="return false">
+      <input class="field" placeholder="Ваше имя" autocomplete="name">
+      <input class="field" type="tel" placeholder="Ваш телефон" autocomplete="tel">
+      <button class="btn">Записаться →</button>
+    </form>
+    <p class="note"><b>Бесплатная диагностика</b> по 39 параметрам · перезвоним за 15 минут</p>
   </div>
 </section>
-<div class="bar"><div class="wrap">
-  <form class="form" id="form" onsubmit="return false">
-    <div><h3>Бесплатная диагностика</h3><p>по 39 параметрам при записи на ТО</p></div>
-    <input class="field" placeholder="+7 (___) ___-__-__">
-    <select class="field"><option>Марка автомобиля</option><option>LiXiang</option><option>Zeekr</option><option>Voyah</option><option>Avatr</option><option>Другая</option></select>
-    <button class="btn">Записаться</button>
-  </form>
-</div></div>
 <div class="wrap"><div class="stats">
   <div class="stat"><b>6<span>+</span></b><p>лет с премиум-авто из Китая</p></div>
   <div class="stat"><b>12 <span>мес</span></b><p>гарантии и техподдержки</p></div>
