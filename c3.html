@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAFIT — концепт 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#fd7b27;--ink:#1b1c1e;--mut:#85878d;--bg:#edeef1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 50px;position:relative}
+
+header{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav{height:74px;display:flex;align-items:center;gap:32px;border-bottom:1px solid rgba(255,255,255,.14)}
+.nav img{width:164px;display:block}
+.links{display:flex;gap:22px;font-size:13px;color:rgba(255,255,255,.62);margin:0 auto}
+.links a:hover{color:#fff}
+.contact{display:flex;align-items:center;gap:14px;color:#fff}
+.contact .ic{width:34px;height:34px;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center}
+.contact div{display:flex;flex-direction:column;font-size:14px;font-weight:500;line-height:1.4}
+.contact small{font-size:12px;font-weight:400;color:rgba(255,255,255,.45);text-decoration:underline}
+
+.hero{position:relative;height:880px;color:#fff;background:#0b0b0c;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(assets/voyah.jpg) 72% 30%/cover}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,12,.88) 0%,rgba(11,11,12,.55) 42%,rgba(11,11,12,.05) 75%),linear-gradient(180deg,rgba(11,11,12,.55) 0%,rgba(11,11,12,0) 22%)}
+.hin{position:relative;z-index:2;padding-top:220px}
+h1{font-size:60px;line-height:1.02;font-weight:600;letter-spacing:-.04em;max-width:640px}
+h1 span{color:rgba(255,255,255,.45)}
+.sub{margin-top:28px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.78);max-width:360px}
+.acts{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
+.pill{height:60px;padding:0 6px 0 30px;border-radius:30px;background:var(--acc);color:#fff;display:inline-flex;align-items:center;gap:20px;font-size:15px;font-weight:500;transition:.2s}
+.pill i{width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:.2s}
+.pill:hover i{transform:translateX(3px)}
+.opill{height:60px;padding:0 30px;border-radius:30px;border:1px solid rgba(255,255,255,.35);display:inline-flex;align-items:center;font-size:15px}
+.opill:hover{border-color:#fff}
+.fcard{position:absolute;z-index:3;right:50px;bottom:110px;width:300px;background:#fff;color:var(--ink);border-radius:12px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.fcard .t{display:flex;justify-content:space-between;gap:12px}
+.fcard h3{font-size:19px;font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.sqa{flex:none;width:32px;height:32px;background:var(--acc);border-radius:3px;display:grid;place-items:center}
+.fcard p{margin-top:10px;font-size:11.5px;line-height:1.5;color:var(--mut)}
+.fcard .im{margin-top:14px;height:150px;border-radius:8px;background:url(assets/new/svc-rus.jpg) center/cover}
+
+.sheet{position:relative;z-index:4;margin-top:-56px;background:var(--bg);border-radius:32px 32px 0 0;padding:72px 0 110px}
+.intro{display:grid;grid-template-columns:1.5fr 1fr;gap:80px;align-items:start}
+.intro h2{font-size:40px;line-height:1.12;font-weight:600;letter-spacing:-.03em}
+.intro h2 b{color:var(--acc);font-weight:600}
+.intro h2 span{color:#a3a5aa}
+.intro .lead{margin-top:20px;font-size:14px;line-height:1.6;color:var(--mut);max-width:520px}
+.facts{display:flex;flex-direction:column;gap:22px;padding-top:8px}
+.fact{display:flex;gap:16px;align-items:flex-start}
+.fact i{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--acc)}
+.fact b{display:block;font-size:15px;font-weight:600}
+.fact p{font-size:13px;color:var(--mut);margin-top:2px}
+
+.cat{margin-top:110px;text-align:center}
+.tag{display:inline-block;background:#fff;border-radius:22px;padding:11px 20px;font-size:14px;font-weight:500}
+.cat h2{margin-top:16px;font-size:48px;line-height:1.1;font-weight:500;letter-spacing:-.03em}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px;text-align:left}
+.tc{position:relative;height:364px;border-radius:20px;overflow:hidden;background:#222 center/cover;display:flex;align-items:flex-end;padding:26px 30px;color:#fff}
+.tc:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,0) 55%);transition:.3s}
+.tc:hover:before{background:linear-gradient(0deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.15) 70%)}
+.tc h3{position:relative;font-size:24px;font-weight:500;line-height:1.05;letter-spacing:-.02em}
+.tc .go{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;opacity:0;transform:translateY(-4px);transition:.25s}
+.tc:hover .go{opacity:1;transform:none}
+
+@media(max-width:1200px){.links{display:none}.contact{margin-left:auto}.fcard{display:none}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.wrap{padding:0 16px}.contact div{display:none}.hero{height:auto;padding-bottom:110px}.hero-bg{background-position:70% center}.hero-bg:after{background:linear-gradient(0deg,rgba(11,11,12,.9) 20%,rgba(11,11,12,.45) 100%)}.hin{padding-top:150px}h1{font-size:38px}.sheet{padding:48px 0 72px;border-radius:24px 24px 0 0}.intro{grid-template-columns:1fr;gap:32px}.intro h2{font-size:28px}.cat{margin-top:72px}.cat h2{font-size:30px}.cards{grid-template-columns:1fr;gap:12px}.tc{height:280px}.tc .go{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#"><img src="assets/logo-white.svg" alt="GRAFIT"></a>
+  <nav class="links"><a href="#">Главная</a><a href="#">О компании</a><a href="#">Сервис</a><a href="#">Русификация</a><a href="#">Детейлинг</a><a href="#">Отзывы</a><a href="#">Партнерам</a><a href="#">Контакты</a></nav>
+  <a class="contact" href="tel:+79962996939"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><div>+7 996 299-69-39<small>Обратный звонок</small></div></a>
+</div></header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hin">
+    <h1>Сервис, русификация и ремонт <span>китайских автомобилей</span></h1>
+    <p class="sub">Техническое обслуживание, дооснащение, диагностика, детейлинг и ремонт</p>
+    <div class="acts">
+      <a class="pill" href="#">Записаться в техцентр <i><svg width="8" height="12" fill="none" stroke="#1b1c1e" stroke-width="1.8"><path d="M1.5 1l5 5-5 5"/></svg></i></a>
+      <a class="opill" href="#cat">Посмотреть услуги</a>
+    </div>
+  </div>
+  <a class="fcard" href="#"><div class="t"><h3>Русификация<br>автомобиля</h3><span class="sqa"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="1.8"><path d="M2 9L9 2M3 2h6v6"/></svg></span></div><p>Адаптация интерфейса автомобиля для поддерживаемых марок и версий программного обеспечения</p><div class="im"></div></a>
+</section>
+
+<section class="sheet"><div class="wrap">
+  <div class="intro">
+    <div>
+      <h2><b>GRAFIT</b> — технический центр китайских премиальных автомобилей <span>в Москве, Уфе и Краснодаре</span></h2>
+      <p class="lead">Обслуживаем LiXiang, Zeekr, Voyah, Avatr и ещё 15 марок по регламенту производителя: оригинальные расходники, дилерское оборудование и фотоотчёт по каждой работе.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><i><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="14" height="10" rx="1.5"/><path d="M6 16h6"/></svg></i><div><b>Диагностика</b><p>Бесплатная проверка по 39 параметрам</p></div></div>
+      <div class="fact"><i><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2l6 2.5v4.5c0 3.6-2.6 6.4-6 7-3.4-.6-6-3.4-6-7V4.5z"/></svg></i><div><b>Гарантия</b><p>12 месяцев и полная техподдержка</p></div></div>
+      <div class="fact"><i><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></i><div><b>Надёжность</b><p>6 лет работаем с автомобилями премиум-класса</p></div></div>
+    </div>
+  </div>
+
+  <div class="cat" id="cat">
+    <span class="tag">Каталог</span>
+    <h2>Техническое обслуживание<br>и ремонт автомобиля</h2>
+    <div class="cards">
+      <a class="tc" href="#" style="background-image:url(assets/new/tall-to.jpg)"><span class="go"><svg width="11" height="11" fill="none" stroke="#1b1c1e" stroke-width="1.8"><path d="M2 9L9 2M3 2h6v6"/></svg></span><h3>Техническое<br>обслуживание</h3></a>
+      <a class="tc" href="#" style="background-image:url(assets/new/tall-diag.jpg)"><span class="go"><svg width="11" height="11" fill="none" stroke="#1b1c1e" stroke-width="1.8"><path d="M2 9L9 2M3 2h6v6"/></svg></span><h3>Компьютерная<br>диагностика</h3></a>
+      <a class="tc" href="#" style="background-image:url(assets/new/tall-rus.jpg)"><span class="go"><svg width="11" height="11" fill="none" stroke="#1b1c1e" stroke-width="1.8"><path d="M2 9L9 2M3 2h6v6"/></svg></span><h3>Русификация<br>автомобиля</h3></a>
+      <a class="tc" href="#" style="background-image:url(assets/garage.jpg)"><span class="go"><svg width="11" height="11" fill="none" stroke="#1b1c1e" stroke-width="1.8"><path d="M2 9L9 2M3 2h6v6"/></svg></span><h3>Детейлинг<br>и защита кузова</h3></a>
+    </div>
+  </div>
+</div></section>
+</body>
+</html>
